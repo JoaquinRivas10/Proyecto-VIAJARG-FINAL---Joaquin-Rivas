@@ -1,0 +1,32 @@
+/*Animacion titulo buscador*/
+
+@keyframes cambiarPalabra {
+    0% {margin-top: 0px;}
+    16% {margin-top: 0px;}
+
+    21% {margin-top: -40px;}
+    37% {margin-top: -40px;}
+
+    42% {margin-top: -80px;}
+    58% {margin-top: -80px;}
+
+    63% {margin-top: -40px;}
+    79% {margin-top: -40px;}
+
+    84% {margin-top: 0px;}
+    100% {margin-top: 0px;}
+}
+
+/*Animacion seccion de testimonios*/
+
+@keyframes aparicion {
+    0% {
+        opacity: 0;
+        scale: 25%;
+    }
+
+    100% {
+        opacity: 1;
+        scale: 100%;
+    }
+}

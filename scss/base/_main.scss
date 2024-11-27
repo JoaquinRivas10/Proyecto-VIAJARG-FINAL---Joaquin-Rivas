@@ -1,0 +1,580 @@
+/*INDEX*/
+/*Buscador*/
+.buscadorContenedor {
+    height: 400px;
+    padding: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 5px 5px 15px #5555;
+
+    .buscadorTitulo {
+        display: flex;
+        height: 40px;
+        line-height: 40px;
+        overflow: hidden;
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            padding-right: 15px;
+            color: #873d34;
+            letter-spacing: 5px;
+            font-size: $fontsize-h2-large;
+            font-weight: bold;
+            margin: 0;
+            animation: cambiarPalabra 12s infinite;
+
+            li {
+                margin: 0;
+            }
+        }
+
+        h2 {
+            font-size: $fontsize-h2-large;
+            letter-spacing: 5px;
+            color: $fontcolor-h2;
+        }
+    }
+
+    .buscadorInput {
+        width: 100%;
+        display: flex;
+
+        .busqueda {
+            height: 3rem;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            background-color: #ffffff4d;
+            border: transparent;
+            outline: none;
+            font-family: $fontfamily-general;
+            font-size: 1.1rem;
+
+            &:hover {
+                background-color: #00000010;
+            }
+
+            &::placeholder {
+                color: #000;
+            }
+        }
+
+        .buscadorBotonContenedor {
+            width: 50%;
+            height: 3rem;
+            background-color: $btncolor-principal;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+
+            .buscadorBoton {
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                font-size: 1.4rem;
+                font-family: $fontfamily-general;
+            }
+        }
+
+        .buscadorBotonContenedor::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 100%;
+            background-color: $btncolor-secundario;
+            border-radius: 50%;
+            z-index: -1;
+        
+            transition: all 0.6s ease;
+        }
+        
+        .buscadorBotonContenedor:hover::before {
+            top: 0%;
+            border-radius: 0%;
+        }
+    }
+}
+
+/*Experiencias*/
+.experiencias {
+    margin-bottom: 40px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px #5555;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $fontcolor-h2;
+        font-weight: 700;
+        font-size: $fontsize-h2-large;
+    }
+
+    .experienciasContenedor {
+        display: grid;
+        grid-template-columns: repeat(5 , 1fr);
+        grid-auto-rows: 150px;
+        gap: 15px;
+
+        .tarjetaExperiencias {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                box-shadow: 5px 5px 10px #5555;
+            }
+        }
+
+        .tarjetaExperiencias:first-child {
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+
+        .tarjetaExperiencias:nth-child(3) {
+            grid-column: span 2;
+        }
+
+        .tarjetaExperiencias:nth-child(4) {
+            grid-column: span 3;
+            grid-row: span 3;
+
+            img {
+                object-position: top;
+                object-position: left;
+            }
+        }
+
+        .tarjetaExperiencias:nth-child(5) {
+            grid-row: span 3;
+        }
+        
+        .tarjetaExperiencias:nth-child(9) {
+            grid-column: span 3;
+
+            img {
+                object-position: 0px -130px;
+            }
+        }
+    }
+}
+
+/*Testimonios*/
+.testimonios {
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    box-shadow: 5px 5px 15px #5555;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $fontcolor-h2;
+        font-weight: 700px;
+        font-size: $fontsize-h2-large;
+    }
+
+    .testimoniosContenedor {
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        gap: 40px;
+
+        .introduccionTestimonios {
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+                font-size: 2.5rem;
+                margin: 70px 0 50px 0;
+            }
+
+            p {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+            }
+        }
+
+        .tarjetasContenedor {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .tarjetaTestimonios {
+                border-radius: 20px;
+                padding: 20px;
+                min-height: 150px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                font-size: 0.9rem;
+                font-style: oblique;
+                padding: 10px;
+                box-shadow: -5px 5px 10px 5px #5553;
+                view-timeline-name: --comentarios;
+                view-timeline-axis: block;
+                animation-timeline: --comentarios;
+                animation-name: aparicion;
+                animation-range-start: entry 50%;
+                animation-range-end: cover 30%;
+                animation-fill-mode: both;
+
+                img {
+                    width: 100px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*NOSOTROS*/
+
+/*Empresa, valores y misiones*/
+.tarjetaEmpresa {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 5px 5px 15px #5555;
+
+    .tarjetaEmpresa__info {
+        width: 50%;
+        margin: auto 20px;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: $fontcolor-h2;
+            font-size: $fontsize-h2-large;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #000;
+            text-align: justify;
+            margin: auto 0;
+            font-size: 1.3rem;
+        }
+    }
+
+    img {
+        width: 50%;
+        object-fit: cover;
+        box-shadow: 5px 5px 10px #5555;
+        filter: opacity(0.7);
+    }
+}
+
+/*Equipo*/
+.equipo {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 5px 5px 15px #5555;
+
+    h2 {
+        font-size: $fontsize-h2-large;
+        color: $fontcolor-h2;
+        text-align: center;
+    }
+
+    .equipoContenedor {
+        display: grid;
+        grid-template-columns: repeat(4 , 1fr);
+        gap: 20px;
+
+        .tarjetaMiembro {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.2rem;
+            gap: 10px;
+
+            img {
+                width: 100%;
+                box-shadow: 5px 5px 10px #5555;
+            }
+            
+            p {
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*DESTINOS*/
+.destinos {
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    box-shadow: 5px 5px 15px #5555;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $fontcolor-h2;
+        font-size: $fontsize-h2-large;
+    }
+
+    .destinosContenedor {
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        grid-auto-rows: 300px;
+        gap: 15px;
+
+        .tarjetaDestinos {
+            box-shadow: 5px 5px 10px #5555;
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &::before {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.8rem;
+                font-weight: bold;
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: #50b1f155;
+                transition: transform 0.2s;
+                transform: scaleY(0);
+            }
+
+            &:hover::before {
+                transform: scaleY(1);
+            }
+        }
+
+        .td-mendoza::before     {
+            content: 'Mendoza';
+        }
+
+        .td-salta::before     {
+            content: 'Salta';
+        }
+
+        .td-jujuy::before     {
+            content: 'Jujuy';
+        }
+
+        .td-neuquen::before     {
+            content: 'Neuquen';
+        }
+
+        .tarjetaDestinos:nth-child(2) {
+            grid-row: span 2;
+        }
+        
+        .tarjetaDestinos:nth-child(4) {
+            grid-column: span 2;
+        }
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*PAQUETES*/
+.paquetes {
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    box-shadow: 5px 5px 15px #5555;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: $fontcolor-h2;
+        font-size: $fontsize-h2-large;
+    }
+
+    .paquetesContenedor {
+        display: grid;
+        grid-template-columns: repeat(4 , 1fr);
+        gap: 20px;
+
+        .tarjetaPaquetes {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            box-shadow: 5px 5px 10px #5555;
+            padding-bottom: 10px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+
+            .botonPaquetesContenedor {
+                width: 40%;
+                height: 3rem;
+                background-color: $btncolor-principal;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+
+                .botonPaquetes {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 1.4rem;
+                    background-color: transparent;
+                    color: #fff;
+                    border: none;
+                    font-family: $fontfamily-general;
+                    cursor: pointer;
+                }
+            }
+
+            .botonPaquetesContenedor::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 100%;
+                background-color: $btncolor-secundario;
+                border-radius: 50%;
+                z-index: -1;
+            
+                transition: all 0.6s ease;
+            }
+
+            .botonPaquetesContenedor:hover::before {
+                top: 0%;
+                border-radius: 0%;
+            }
+        }
+    }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*CONTACTO*/    
+.contacto {
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    align-items: center;
+    margin-bottom: 40px;
+
+    .contactoImagen {
+        width: 100%;
+        height: 100%;
+        box-shadow: 5px 5px 15px 5px #0005;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+
+    .contactoFormulario {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 5px 5px 15px 5px #0005;
+        height: 100%;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: $fontcolor-h2;
+            font-size: $fontsize-h2-large;
+        }
+
+        form {
+
+            .info {
+                width: 100%;
+                padding: 0.5rem 1rem;
+                outline: none;
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+                border: 1px solid #0000;
+                background-color: #e6e6e699;
+                font-family: $fontfamily-general;
+
+                &:hover {
+                    background-color: #0000001a;
+                }
+            }
+
+            textarea {
+                height: 8rem;
+                resize: none;
+                font-family: $fontfamily-general;
+            }
+
+            .botonContactoContenedor {
+                width: 100%;
+                height: 4rem;
+                background-color: $btncolor-principal;
+                position: relative;
+                overflow: hidden;
+                z-index: 1;
+
+                .btn {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 1.4rem;
+                    background-color: transparent;
+                    color: #fff;
+                    font-family: $fontfamily-general;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+
+            .botonContactoContenedor::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 100%;
+                background-color: $btncolor-secundario;
+                border-radius: 50%;
+                z-index: -1;
+            
+                transition: all 0.6s ease;
+            }
+
+            .botonContactoContenedor:hover::before {
+                top: 0%;
+                border-radius: 0%;
+            }
+        }
+    }
+}

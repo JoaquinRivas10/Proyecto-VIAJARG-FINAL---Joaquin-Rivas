@@ -1,0 +1,23 @@
+body { 
+    background-color: #fbf9f9;
+    font-family: $fontfamily-general;
+    min-height: 100vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -10;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../img/contacto/formulario.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+}
